@@ -117,21 +117,13 @@ program
     }
   });
 
-// Check if running with npx
-const isNpx = process.env.npm_execpath && process.env.npm_execpath.includes('npx');
-
-// If running with npx and no arguments provided, start the server
-if (isNpx && process.argv.length <= 2) {
-  console.log('Running Task-Master MCP server with npx...');
+// If no arguments provided, start the server
+if (process.argv.length <= 2) {
+  console.log('Starting Task-Master MCP server...');
   const port = process.env.PORT || 3000;
-  console.log(`Starting Task-Master MCP server on port ${port}...`);
+  console.log(`Server running on port ${port}...`);
   startServer(port);
 } else {
   // Parse command line arguments
   program.parse(process.argv);
-
-  // If no arguments provided and not running with npx, show help
-  if (process.argv.length <= 2 && !isNpx) {
-    program.help();
-  }
 }
