@@ -1,0 +1,47 @@
+{
+  "name": "@keruru-amuri/task-master",
+  "version": "0.1.0",
+  "description": "Task-Master MCP - Project Planning and Task Management System for Augment Code",
+  "main": "src/index.js",
+  "bin": {
+    "task-master": "bin/task-master.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "augment-code",
+    "task-management",
+    "project-planning",
+    "mcp"
+  ],
+  "author": "keruru-amuri",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "body-parser": "^1.20.2",
+    "morgan": "^1.10.0",
+    "winston": "^3.10.0",
+    "dotenv": "^16.3.1",
+    "fs-extra": "^11.1.1",
+    "marked": "^9.0.0",
+    "commander": "^11.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keruru-amuri/task-master.git"
+  },
+  "bugs": {
+    "url": "https://github.com/keruru-amuri/task-master/issues"
+  },
+  "homepage": "https://github.com/keruru-amuri/task-master#readme"
+}
