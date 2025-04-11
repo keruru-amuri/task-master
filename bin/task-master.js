@@ -95,14 +95,14 @@ program
     try {
       const projectRoot = process.cwd();
       const result = await getProjectStatus(projectRoot);
-      
+
       if (result.success) {
         const status = result.status;
         console.log(`Project: ${status.project_name}`);
         console.log(`Status: ${status.status}`);
         console.log(`Progress: ${status.completed_tasks}/${status.total_tasks} tasks completed`);
         console.log('\nTasks:');
-        
+
         status.tasks.forEach(task => {
           const statusMark = task.completed ? '✓' : '☐';
           console.log(`${statusMark} ${task.title}`);
@@ -117,10 +117,21 @@ program
     }
   });
 
-// Parse command line arguments
-program.parse(process.argv);
+// Check if running with npx
+const isNpx = process.env.npm_execpath && process.env.npm_execpath.includes('npx');
 
-// If no arguments provided, show help
-if (process.argv.length <= 2) {
-  program.help();
+// If running with npx and no arguments provided, start the server
+if (isNpx && process.argv.length <= 2) {
+  console.log('Running Task-Master MCP server with npx...');
+  const port = process.env.PORT || 3000;
+  console.log(`Starting Task-Master MCP server on port ${port}...`);
+  startServer(port);
+} else {
+  // Parse command line arguments
+  program.parse(process.argv);
+
+  // If no arguments provided and not running with npx, show help
+  if (process.argv.length <= 2 && !isNpx) {
+    program.help();
+  }
 }
