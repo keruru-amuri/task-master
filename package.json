@@ -1,6 +1,6 @@
 {
   "name": "@keruru-amuri/task-master",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Task-Master MCP - Project Planning and Task Management System for Augment Code",
   "main": "src/index.js",
   "bin": {
